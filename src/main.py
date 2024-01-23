@@ -31,10 +31,8 @@ def main():
     # find the distance between the two cities
     for i in range(0,len(stages)-1):
         print("Da: " + stages[i]["display_name"] + " \nA: " + stages[i+1]["display_name"])
-        route = ors.getRoute(stages[i]["lat"] + "," + stages[i]["lon"],stages[i+1]["lat"] + "," + stages[i+1]["lon"])
-        print(route["features"][0]["properties"]["summary"]["distance"])
-        print(route["features"][0]["properties"]["summary"]["duration"])
-        print(route["features"][0]["geometry"]["coordinates"])
+        route = ors.getRoute(stages[i]["lon"] + "," + stages[i]["lat"],stages[i+1]["lon"] + "," + stages[i+1]["lat"])
+        print("Distanza: " + route["features"][0]["properties"]["summary"]["distance"])
         print("--------------------------------------------------")
     
     # I look for the weather of those cities for the current day
