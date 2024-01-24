@@ -6,12 +6,13 @@ class OWM:
         self.key = OWMKey
         
     def getWeather(self, lat, lon):
-        url = 'https://api.openweathermap.org/data/2.5/onecall'
+        url = 'https://api.openweathermap.org/data/2.5/weather'
         
         params = {'lat': lat,
                 'lon': lon,
                 'appid': self.key,
-                'units': 'metric'}
+                'units': 'metric',
+                'lang': 'it'}
         response = requests.get(url, params=params)
         
         if(response.status_code != 200):
